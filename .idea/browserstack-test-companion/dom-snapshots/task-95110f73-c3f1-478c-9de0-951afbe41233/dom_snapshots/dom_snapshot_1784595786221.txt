@@ -1,0 +1,36 @@
+[2] #document:rootwebarea "Sofri CIB Corporate" <main-2>
+ [74] body:none <main-74>
+  [76] section:region "Notifications alt+T" <main-76>
+   [236] ol:list (scrollable) <main-236>
+    [235] li:listitem <main-235>
+     [233] div:generic (scrollable) <main-233>
+      [231] svg:image <main-231>
+  [77] section:region "Notifications alt+T" <main-77>
+   [244] ol:list (scrollable) <main-244>
+    [243] li:listitem <main-243>
+     [241] div:generic (scrollable) <main-241>
+      [239] svg:image <main-239>
+  [12] div:none <main-12>
+   [80] svg:image <main-80>
+   [295] div:none <main-295>
+    [280] div:generic (scrollable) <main-280>
+    [281] form:form <main-281>
+     [274] div:none <main-274>
+      [256] div:none (scrollable) <main-256>
+       [247] span:none (scrollable) <main-247>
+       [248] span:none (scrollable) <main-248>
+      [253] input:textbox "Enter Username" 'ofatunbi_11' <main-253>
+     [275] div:none <main-275>
+      [271] div:none (scrollable) <main-271>
+       [258] span:none (scrollable) <main-258>
+       [259] span:none (scrollable) <main-259>
+      [270] div:generic <main-270>
+       [267] input:textbox "Enter password" '••••••••••••••' <main-267>
+       [268] div:none (scrollable) <main-268>
+        [264] button:button "toggle password visibility" <main-264>
+     [273] button:button "Next" <main-273>
+    [282] div:none <main-282>
+     [277] a:link "Forgot Password?" <main-277>
+     [279] a:link "Forgot Username?" <main-279>
+  [157] div:alert <main-157>
+[+13 off-screen elements. Scroll to reveal.]

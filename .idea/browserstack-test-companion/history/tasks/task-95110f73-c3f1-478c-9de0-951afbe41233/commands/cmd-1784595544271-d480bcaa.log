@@ -1,0 +1,102 @@
+# 2026-07-21T00:59:04.272083300Z  $ behave features/login.feature:4 --no-capture 2>&1
+USING RUNNER: behave.runner:Runner
+@Regression_Login
+Feature: Login # features/login.feature:2
+
+  Scenario: Verify Login with invalid details                             # features/login.feature:4
+    Given the user visits the website "https://cib.sofriwebservices.com/" # features/steps/login.py:32
+    When the user enters username                                         # features/steps/login.py:37
+    And the user enters wrong password                                    # features/steps/login.py:61
+    And the user clicks the eye icon in the password field                # features/steps/login.py:53
+      Traceback (most recent call last):
+        File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\model.py", line 1991, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\matchers.py", line 105, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "features\steps\login.py", line 58, in step_impl
+          driver.execute_script("arguments[0].click();", eye_icon)
+          ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 578, in execute_script
+          return self.execute(command, {"script": script, "args": converted_args})["value"]
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 468, in execute
+          self.error_handler.check_response(response)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+        File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 232, in check_response
+          raise exception_class(message, screen, stacktrace)
+      selenium.common.exceptions.JavascriptException: Message: javascript error: arguments[0].click is not a function
+        (Session info: chrome=150.0.7871.129)
+      Stacktrace:
+      	chromedriver!GetHandleVerifier [0x7ff6b7c60d25+155a5]
+      	chromedriver!GetHandleVerifier [0x7ff6b7c60d80+15600]
+      	chromedriver!(No symbol) [0x7ff6b77b594d]
+      	chromedriver!(No symbol) [0x7ff6b77bd8c1]
+      	chromedriver!(No symbol) [0x7ff6b77c0c1f]
+      	chromedriver!(No symbol) [0x7ff6b785f292]
+      	chromedriver!(No symbol) [0x7ff6b78391ca]
+      	chromedriver!(No symbol) [0x7ff6b785e01b]
+      	chromedriver!(No symbol) [0x7ff6b7802e6c]
+      	chromedriver!(No symbol) [0x7ff6b7803d93]
+      	chromedriver!GetHandleVerifier [0x7ff6b8246431+5facb1]
+      	chromedriver!GetHandleVerifier [0x7ff6b8240a9b+5f531b]
+      	chromedriver!GetHandleVerifier [0x7ff6b8265865+61a0e5]
+      	chromedriver!GetHandleVerifier [0x7ff6b7c7dace+3234e]
+      	chromedriver!GetHandleVerifier [0x7ff6b7c8661c+3ae9c]
+      	chromedriver!GetHandleVerifier [0x7ff6b7c6ab74+1f3f4]
+      	chromedriver!GetHandleVerifier [0x7ff6b7c6ad04+1f584]
+      	chromedriver!GetHandleVerifier [0x7ff6b7c4d9d7+2257]
+      	KERNEL32!BaseThreadInitThunk [0x7ffeaf8fe957+17]
+      	ntdll!RtlUserThreadStart [0x7ffeb1acad6c+2c]
+
+    And the user clicks Next                                              # None
+    Then the user should a message "Incorrect username or password."      # None
+
+  @requires_otp
+  Scenario: Verify login with valid details                               # features/login.feature:13
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters password                                          # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    And the user enters OTP & clicks login                                # None
+    Then the user should be directed to My Account                        # None
+
+  Scenario: Verify login with empty password!                                 # features/login.feature:22
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # None
+    When the user enters username                                             # None
+    And the user clicks Next                                                  # None
+    Then the password field displays an inline message "Password is required" # None
+
+  Scenario: Verify login with empty username!                                 # features/login.feature:28
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # None
+    When the user enters password                                             # None
+    And the user clicks Next                                                  # None
+    Then the username field displays an inline message "Username is required" # None
+
+  Scenario: Verify login with empty username & password                                                                 # features/login.feature:34
+    Given the user visits the website "https://cib.sofriwebservices.com/"                                               # None
+    When the user clicks Next                                                                                           # None
+    Then both the username field displays "Username is required" and the password field displays "Password is required" # None
+
+  @requires_otp
+  Scenario: Verify login with Invalid OTP                                 # features/login.feature:40
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters password                                          # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    And the user enters invalid OTP                                       # None
+    And the user clicks login                                             # None
+    Then the user sees "Invalid OTP. Please try again."                   # None
+
+
+Errored scenarios:
+  features/login.feature:4  Verify Login with invalid details
+
+0 features passed, 0 failed, 1 error, 0 skipped
+0 scenarios passed, 0 failed, 1 error, 5 skipped
+3 steps passed, 0 failed, 1 error, 28 skipped
+Took 0min 6.986s
+# exit=1 at 2026-07-21T00:59:18.306067500Z

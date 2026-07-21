@@ -1,0 +1,20 @@
+{
+    "todos": [
+        {
+            "id": "86984a43-27d0-450d-9405-ad50ea50a1ca",
+            "content": "Analyze failure root cause from error logs and source code",
+            "status": 2
+        },
+        {
+            "id": "39039639-64f2-4e84-97b8-0e5cd07209e7",
+            "content": "Fix the OTP step timeout issue",
+            "status": 2
+        },
+        {
+            "id": "08b90a07-566c-494a-a1c8-469faee6bd69",
+            "content": "Validate fix and update workflow if needed",
+            "status": 2
+        }
+    ],
+    "phase": ""
+}

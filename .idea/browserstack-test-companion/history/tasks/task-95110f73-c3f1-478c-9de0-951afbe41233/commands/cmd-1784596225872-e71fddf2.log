@@ -1,0 +1,57 @@
+# 2026-07-21T01:10:25.874661900Z  $ behave features/login.feature --no-capture 2>&1
+USING RUNNER: behave.runner:Runner
+@Regression_Login
+Feature: Login # features/login.feature:2
+
+  @skip_ci
+  Scenario: Verify Login with invalid details                             # features/login.feature:5
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters wrong password                                    # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    Then the user should a message "Incorrect username or password."      # None
+
+  @skip_ci
+  Scenario: Verify login with valid details                               # features/login.feature:14
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters password                                          # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    And the user enters OTP & clicks login                                # None
+    Then the user should be directed to My Account                        # None
+
+  Scenario: Verify login with empty password!                                 # features/login.feature:23
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # features/steps/login.py:32
+    When the user enters username                                             # features/steps/login.py:37
+    And the user clicks Next                                                  # features/steps/login.py:69
+    Then the password field displays an inline message "Password is required" # features/steps/login.py:165
+
+  Scenario: Verify login with empty username!                                 # features/login.feature:29
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # features/steps/login.py:32
+    When the user enters password                                             # features/steps/login.py:45
+    And the user clicks Next                                                  # features/steps/login.py:69
+    Then the username field displays an inline message "Username is required" # features/steps/login.py:127
+
+  Scenario: Verify login with empty username & password                                                                 # features/login.feature:35
+    Given the user visits the website "https://cib.sofriwebservices.com/"                                               # features/steps/login.py:32
+    When the user clicks Next                                                                                           # features/steps/login.py:69
+    Then both the username field displays "Username is required" and the password field displays "Password is required" # features/steps/login.py:174
+
+  @skip_ci
+  Scenario: Verify login with Invalid OTP                                 # features/login.feature:41
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters password                                          # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    And the user enters invalid OTP                                       # None
+    And the user clicks login                                             # None
+    Then the user sees "Invalid OTP. Please try again."                   # None
+
+1 feature passed, 0 failed, 0 skipped
+3 scenarios passed, 0 failed, 3 skipped
+11 steps passed, 0 failed, 21 skipped
+Took 0min 24.682s
+# exit=0 at 2026-07-21T01:10:57.714996100Z

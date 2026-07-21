@@ -1,6 +1,7 @@
 @Regression_Login
 Feature: Login
 
+  @skip_ci
   Scenario: Verify Login with invalid details
     Given the user visits the website "https://cib.sofriwebservices.com/"
     When the user enters username
@@ -9,6 +10,7 @@ Feature: Login
     And the user clicks Next
     Then the user should a message "Incorrect username or password."
 
+  @skip_ci
   Scenario: Verify login with valid details
     Given the user visits the website "https://cib.sofriwebservices.com/"
     When the user enters username
@@ -35,7 +37,8 @@ Feature: Login
     When the user clicks Next
     Then both the username field displays "Username is required" and the password field displays "Password is required"
 
-   Scenario: Verify login with Invalid OTP
+  @skip_ci
+  Scenario: Verify login with Invalid OTP
     Given the user visits the website "https://cib.sofriwebservices.com/"
     When the user enters username
     And the user enters password

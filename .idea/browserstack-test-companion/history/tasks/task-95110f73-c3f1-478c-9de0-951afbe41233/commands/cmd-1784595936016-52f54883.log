@@ -1,0 +1,79 @@
+# 2026-07-21T01:05:36.018340600Z  $ behave features/login.feature --no-capture 2>&1
+USING RUNNER: behave.runner:Runner
+@Regression_Login
+Feature: Login # features/login.feature:2
+
+  @account_blocked
+  Scenario: Verify Login with invalid details                             # features/login.feature:5
+    Given the user visits the website "https://cib.sofriwebservices.com/" # features/steps/login.py:32
+    When the user enters username                                         # features/steps/login.py:37
+    And the user enters wrong password                                    # features/steps/login.py:61
+    And the user clicks the eye icon in the password field                # features/steps/login.py:53
+    And the user clicks Next                                              # features/steps/login.py:69
+    Then the user should a message "Incorrect username or password."      # features/steps/login.py:137
+      ASSERT FAILED: Expected error message 'Incorrect username or password.' was not displayed.
+      Page content: .cls-1 { fill: #c8c832; } .cls-2 { fill: #101b41; }
+      Welcome Back!
+      Username
+      *
+      Password
+      *
+      Next
+      Forgot Password?
+      |
+      Forgot Username?
+
+
+  @requires_otp
+  Scenario: Verify login with valid details                               # features/login.feature:14
+    Given the user visits the website "https://cib.sofriwebservices.com/" # features/steps/login.py:32
+    When the user enters username                                         # features/steps/login.py:37
+    And the user enters password                                          # features/steps/login.py:45
+    And the user clicks the eye icon in the password field                # features/steps/login.py:53
+    And the user clicks Next                                              # features/steps/login.py:69
+    And the user enters OTP & clicks login                                # features/steps/login.py:76
+      ASSERT FAILED: OTP_SECRET environment variable is not set. Add it as a GitHub Actions secret.
+
+    Then the user should be directed to My Account                        # None
+
+  Scenario: Verify login with empty password!                                 # features/login.feature:23
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # features/steps/login.py:32
+    When the user enters username                                             # features/steps/login.py:37
+    And the user clicks Next                                                  # features/steps/login.py:69
+    Then the password field displays an inline message "Password is required" # features/steps/login.py:165
+
+  Scenario: Verify login with empty username!                                 # features/login.feature:29
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # features/steps/login.py:32
+    When the user enters password                                             # features/steps/login.py:45
+    And the user clicks Next                                                  # features/steps/login.py:69
+    Then the username field displays an inline message "Username is required" # features/steps/login.py:127
+
+  Scenario: Verify login with empty username & password                                                                 # features/login.feature:35
+    Given the user visits the website "https://cib.sofriwebservices.com/"                                               # features/steps/login.py:32
+    When the user clicks Next                                                                                           # features/steps/login.py:69
+    Then both the username field displays "Username is required" and the password field displays "Password is required" # features/steps/login.py:174
+
+  @requires_otp
+  Scenario: Verify login with Invalid OTP                                 # features/login.feature:41
+    Given the user visits the website "https://cib.sofriwebservices.com/" # features/steps/login.py:32
+    When the user enters username                                         # features/steps/login.py:37
+    And the user enters password                                          # features/steps/login.py:45
+    And the user clicks the eye icon in the password field                # features/steps/login.py:53
+    And the user clicks Next                                              # features/steps/login.py:69
+    And the user enters invalid OTP                                       # features/steps/login.py:93
+    And the user clicks login                                             # features/steps/login.py:105
+    Then the user sees "Invalid OTP. Please try again."                   # features/steps/login.py:111
+      ASSERT FAILED: Expected message 'Invalid OTP. Please try again.' was not found on the page.
+
+
+
+Failing scenarios:
+  features/login.feature:5  Verify Login with invalid details
+  features/login.feature:14  Verify login with valid details
+  features/login.feature:41  Verify login with Invalid OTP
+
+0 features passed, 1 failed, 0 skipped
+3 scenarios passed, 3 failed, 0 skipped
+28 steps passed, 3 failed, 1 skipped
+Took 1min 35.889s
+# exit=1 at 2026-07-21T01:07:21.841386700Z

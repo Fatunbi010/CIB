@@ -1,0 +1,37 @@
+# 2026-07-21T00:52:42.787115500Z  $ behave features/login.feature --no-capture 2>&1
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Scripts\behave.exe\__main__.py", line 5, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\__main__.py", line 293, in main
+    config = Configuration(args)
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\configuration.py", line 825, in __init__
+    load_configuration(self.defaults, verbose=self.verbose)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\configuration.py", line 710, in load_configuration
+    defaults.update(read_configuration(filename, verbose))
+                    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\configuration.py", line 688, in read_configuration
+    parsed = parse_func(path)
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\configuration.py", line 562, in read_configparser
+    config.read(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\configparser.py", line 761, in read
+    self._read(fp, filename)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\configparser.py", line 1077, in _read
+    ParsingError._raise_all(self._read_inner(fp, fpname))
+                            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\configparser.py", line 1105, in _read_inner
+    self._handle_rest(st, line, fpname)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\configparser.py", line 1131, in _handle_rest
+    self._handle_header(st, mo.group('header'), fpname) if mo else self._handle_option(st, line, fpname)
+                                                                   ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\configparser.py", line 1170, in _handle_option
+    raise DuplicateOptionError(st.sectname, st.optname,
+                            fpname, st.lineno)
+configparser.DuplicateOptionError: While reading from './behave.ini' [line  5]: option 'tags' in section 'behave' already exists
+# exit=1 at 2026-07-21T00:52:43.787225500Z

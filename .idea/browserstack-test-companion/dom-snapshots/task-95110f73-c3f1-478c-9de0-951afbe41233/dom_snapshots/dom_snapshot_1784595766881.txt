@@ -1,0 +1,26 @@
+[2] #document:rootwebarea "Sofri CIB Corporate" <main-2>
+ [74] body:none <main-74>
+  [12] div:none <main-12>
+   [80] svg:image <main-80>
+   [119] div:none <main-119>
+    [120] div:generic (scrollable) <main-120>
+    [4] form:form <main-4>
+     [122] div:none <main-122>
+      [11] div:none (scrollable) <main-11>
+       [123] span:none (scrollable) <main-123>
+       [124] span:none (scrollable) <main-124>
+      [5] input:textbox "Enter Username" 'ofatunbi_11' <main-5>
+     [131] div:none <main-131>
+      [132] div:none (scrollable) <main-132>
+       [133] span:none (scrollable) <main-133>
+       [134] span:none (scrollable) <main-134>
+      [136] div:generic <main-136>
+       [6] input:textbox "Enter password" <main-6>
+       [139] div:none (scrollable) <main-139>
+        [8] button:button "toggle password visibility" <main-8>
+     [10] button:button "Next" <main-10>
+    [145] div:none <main-145>
+     [146] a:link "Forgot Password?" <main-146>
+     [148] a:link "Forgot Username?" <main-148>
+  [157] div:alert <main-157>
+[+12 off-screen elements. Scroll up to reveal.]

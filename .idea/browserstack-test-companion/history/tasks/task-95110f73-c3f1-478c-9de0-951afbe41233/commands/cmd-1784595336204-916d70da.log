@@ -1,0 +1,62 @@
+# 2026-07-21T00:55:36.207896400Z  $ behave features/login.feature:4 --no-capture 2>&1
+USING RUNNER: behave.runner:Runner
+@Regression_Login
+Feature: Login # features/login.feature:2
+
+  Scenario: Verify Login with invalid details                             # features/login.feature:4
+    Given the user visits the website "https://cib.sofriwebservices.com/" # features/steps/login.py:32
+    When the user enters username                                         # features/steps/login.py:37
+    And the user enters wrong password                                    # features/steps/login.py:59
+    And the user clicks the eye icon in the password field                # features/steps/login.py:53
+    And the user clicks Next                                              # features/steps/login.py:67
+    Then the user should a message "Incorrect username or password."      # features/steps/login.py:134
+      ASSERT FAILED: Expected error message 'Incorrect username or password.' was not displayed.
+
+
+  @requires_otp
+  Scenario: Verify login with valid details                               # features/login.feature:13
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters password                                          # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    And the user enters OTP & clicks login                                # None
+    Then the user should be directed to My Account                        # None
+
+  Scenario: Verify login with empty password!                                 # features/login.feature:22
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # None
+    When the user enters username                                             # None
+    And the user clicks Next                                                  # None
+    Then the password field displays an inline message "Password is required" # None
+
+  Scenario: Verify login with empty username!                                 # features/login.feature:28
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # None
+    When the user enters password                                             # None
+    And the user clicks Next                                                  # None
+    Then the username field displays an inline message "Username is required" # None
+
+  Scenario: Verify login with empty username & password                                                                 # features/login.feature:34
+    Given the user visits the website "https://cib.sofriwebservices.com/"                                               # None
+    When the user clicks Next                                                                                           # None
+    Then both the username field displays "Username is required" and the password field displays "Password is required" # None
+
+  @requires_otp
+  Scenario: Verify login with Invalid OTP                                 # features/login.feature:40
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters password                                          # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    And the user enters invalid OTP                                       # None
+    And the user clicks login                                             # None
+    Then the user sees "Invalid OTP. Please try again."                   # None
+
+
+Failing scenarios:
+  features/login.feature:4  Verify Login with invalid details
+
+0 features passed, 1 failed, 0 skipped
+0 scenarios passed, 1 failed, 5 skipped
+5 steps passed, 1 failed, 26 skipped
+Took 0min 22.404s
+# exit=1 at 2026-07-21T00:56:06.111153400Z

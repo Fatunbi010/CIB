@@ -1,0 +1,54 @@
+# 2026-07-21T00:39:13.763394100Z  $ set OTP_SECRET=JBSWY3DPEHPK3PXP && behave features/login.feature:38 --no-capture 2>&1
+USING RUNNER: behave.runner:Runner
+@Regression_Login
+Feature: Login # features/login.feature:2
+
+  Scenario: Verify Login with invalid details                             # features/login.feature:4
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters wrong password                                    # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    Then the user should a message "Incorrect username or password."      # None
+
+  Scenario: Verify login with valid details                               # features/login.feature:12
+    Given the user visits the website "https://cib.sofriwebservices.com/" # None
+    When the user enters username                                         # None
+    And the user enters password                                          # None
+    And the user clicks the eye icon in the password field                # None
+    And the user clicks Next                                              # None
+    And the user enters OTP & clicks login                                # None
+    Then the user should be directed to My Account                        # None
+
+  Scenario: Verify login with empty password!                                 # features/login.feature:21
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # None
+    When the user enters username                                             # None
+    And the user clicks Next                                                  # None
+    Then the password field displays an inline message "Password is required" # None
+
+  Scenario: Verify login with empty username!                                 # features/login.feature:27
+    Given the user visits the website "https://cib.sofriwebservices.com/"     # None
+    When the user enters password                                             # None
+    And the user clicks Next                                                  # None
+    Then the username field displays an inline message "Username is required" # None
+
+  Scenario: Verify login with empty username & password                                                                 # features/login.feature:33
+    Given the user visits the website "https://cib.sofriwebservices.com/"                                               # None
+    When the user clicks Next                                                                                           # None
+    Then both the username field displays "Username is required" and the password field displays "Password is required" # None
+
+  Scenario: Verify login with Invalid OTP                                 # features/login.feature:38
+    Given the user visits the website "https://cib.sofriwebservices.com/" # features/steps/login.py:32
+    When the user enters username                                         # features/steps/login.py:37
+    And the user enters password                                          # features/steps/login.py:45
+    And the user clicks the eye icon in the password field                # features/steps/login.py:53
+    And the user clicks Next                                              # features/steps/login.py:67
+    And the user enters invalid OTP                                       # features/steps/login.py:90
+    And the user clicks login                                             # features/steps/login.py:102
+    Then the user sees "Invalid OTP. Please try again."                   # features/steps/login.py:108
+
+1 feature passed, 0 failed, 0 skipped
+1 scenario passed, 0 failed, 5 skipped
+8 steps passed, 0 failed, 24 skipped
+Took 0min 7.623s
+# exit=0 at 2026-07-21T00:39:29.878210400Z
