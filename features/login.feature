@@ -1,34 +1,17 @@
 @Regression_Login
 Feature: Login
 
-  Scenario: Verify Login with invalid details
+  Scenario: Verify login with empty username!
     Given the user visits the website "https://cib.sofriwebservices.com/"
-    When the user enters username
-    And the user enters wrong password
-    And the user clicks the eye icon in the password field
+    When the user enters password
     And the user clicks Next
-    Then the user should a message "Incorrect username or password."
-
-  Scenario: Verify login with valid details
-    Given the user visits the website "https://cib.sofriwebservices.com/"
-    When the user enters username
-    And the user enters password
-    And the user clicks the eye icon in the password field
-    And the user clicks Next
-    And the user enters OTP & clicks login
-    Then the user should be directed to My Account
+    Then the username field displays an inline message "Username is required"
 
   Scenario: Verify login with empty password!
     Given the user visits the website "https://cib.sofriwebservices.com/"
     When the user enters username
     And the user clicks Next
     Then the password field displays an inline message "Password is required"
-
-  Scenario: Verify login with empty username!
-    Given the user visits the website "https://cib.sofriwebservices.com/"
-    When the user enters password
-    And the user clicks Next
-    Then the username field displays an inline message "Username is required"
 
   Scenario: Verify login with empty username & password
     Given the user visits the website "https://cib.sofriwebservices.com/"
@@ -44,3 +27,20 @@ Feature: Login
     And the user enters invalid OTP
     And the user clicks login
     Then the user sees "Invalid OTP. Please try again."
+
+    Scenario: Verify login with valid details
+    Given the user visits the website "https://cib.sofriwebservices.com/"
+    When the user enters username
+    And the user enters password
+    And the user clicks the eye icon in the password field
+    And the user clicks Next
+    And the user enters OTP & clicks login
+    Then the user should be directed to My Account
+
+   Scenario: Verify Login with invalid details
+    Given the user visits the website "https://cib.sofriwebservices.com/"
+    When the user enters username
+    And the user enters wrong password
+    And the user clicks the eye icon in the password field
+    And the user clicks Next
+    Then the user should a message "Incorrect username or password."

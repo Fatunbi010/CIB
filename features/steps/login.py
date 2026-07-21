@@ -16,7 +16,7 @@ import time
 options = webdriver.ChromeOptions()
 
 # Required for GitHub Actions
-options.add_argument("--headless")
+# options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--window-size=1920,1080")
@@ -38,7 +38,7 @@ def step_impl(context):
     input_field = wait.until(EC.presence_of_element_located((By.ID, "Username")))
     wait.until(EC.element_to_be_clickable((By.ID, "Username")))
     input_field.clear()
-    input_field.send_keys("ofatunbi_11")
+    input_field.send_keys("ofatunbi_111")
 
 @when('the user enters password')
 def step_impl(context):
@@ -46,7 +46,7 @@ def step_impl(context):
     input_field = wait.until(EC.presence_of_element_located((By.ID, "Password")))
     wait.until(EC.element_to_be_clickable((By.ID, "Password")))
     input_field.clear()
-    input_field.send_keys("Ofatunbi@2026!")
+    input_field.send_keys("Ofatunbi@2026!!")
 
 @when('the user clicks the eye icon in the password field')
 def step_impl(context):
