@@ -1,0 +1,2 @@
+# 2026-07-20T21:26:45.363783400Z  $ py -m behave -f behave_html_formatter:HTMLFormatter -o report.html --tags=@Regression_Login
+# signal=SIGTERM at 2026-07-20T21:27:21.497075400Z

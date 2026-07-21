@@ -1,0 +1,32 @@
+# 2026-07-20T21:26:13.198960800Z  $ py -m pip install webdriver-manager
+WARNING: Cache entry deserialization failed, entry ignored
+WARNING: Cache entry deserialization failed, entry ignored
+Collecting webdriver-manager
+  Downloading webdriver_manager-4.1.2-py3-none-any.whl.metadata (16 kB)
+WARNING: Cache entry deserialization failed, entry ignored
+Collecting requests (from webdriver-manager)
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+WARNING: Cache entry deserialization failed, entry ignored
+Collecting python-dotenv (from webdriver-manager)
+  Using cached python_dotenv-1.2.2-py3-none-any.whl.metadata (27 kB)
+WARNING: Cache entry deserialization failed, entry ignored
+Collecting packaging (from webdriver-manager)
+  Using cached packaging-26.2-py3-none-any.whl.metadata (3.5 kB)
+WARNING: Cache entry deserialization failed, entry ignored
+Collecting charset_normalizer<4,>=2 (from requests->webdriver-manager)
+  Downloading charset_normalizer-3.4.9-cp314-cp314-win_amd64.whl.metadata (42 kB)
+Requirement already satisfied: idna<4,>=2.5 in C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages (from requests->webdriver-manager) (3.16)
+Requirement already satisfied: urllib3<3,>=1.26 in C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages (from requests->webdriver-manager) (2.7.0)
+Requirement already satisfied: certifi>=2023.5.7 in C:\Users\Olumide Fatunbi\AppData\Local\Programs\Python\Python314\Lib\site-packages (from requests->webdriver-manager) (2026.5.20)
+Downloading webdriver_manager-4.1.2-py3-none-any.whl (32 kB)
+Using cached packaging-26.2-py3-none-any.whl (100 kB)
+Using cached python_dotenv-1.2.2-py3-none-any.whl (22 kB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.4.9-cp314-cp314-win_amd64.whl (162 kB)
+Installing collected packages: python-dotenv, packaging, charset_normalizer, requests, webdriver-manager
+
+Successfully installed charset_normalizer-3.4.9 packaging-26.2 python-dotenv-1.2.2 requests-2.34.2 webdriver-manager-4.1.2
+
+[notice] A new release of pip is available: 26.1.1 -> 26.1.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
+# exit=0 at 2026-07-20T21:26:28.043926300Z
