@@ -1,7 +1,6 @@
 @Regression_Login
 Feature: Login
 
-  @skip_ci
   Scenario: Verify Login with invalid details
     Given the user visits the website "https://cib.sofriwebservices.com/"
     When the user enters username
